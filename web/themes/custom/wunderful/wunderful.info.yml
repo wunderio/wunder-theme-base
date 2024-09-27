@@ -6,8 +6,8 @@ core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:storybook (^3.0)
 libraries:
-  - drupal-theme/global
-  - drupal-theme/fonts
+  - wunder-theme/global
+  - wunder-theme/fonts
 regions:
   header: Header
   breadcrumb: Breadcrumb

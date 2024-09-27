@@ -8,7 +8,7 @@
 /**
  * Implements hook_theme_suggestions_page_alter().
  */
-function drupal-theme_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+function wunderful_theme_suggestions_page_alter(array &$suggestions, array $variables) {
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
     // Add content type suggestions.
     $suggestions[] = 'page__node__' . $node->bundle();
@@ -18,6 +18,6 @@ function drupal-theme_theme_suggestions_page_alter(array &$suggestions, array $v
 /**
  * Implements template_preprocess_page().
  */
-function drupal-theme_preprocess_page(&$variables) {
+function wunderful-theme_preprocess_page(&$variables) {
   $variables['site_name'] = \Drupal::config('system.site')->get('name');
 }

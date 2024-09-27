@@ -9,7 +9,7 @@
 /web/modules/contrib/
 /web/themes/.gitignore
 /web/themes/contrib/
-/web/themes/custom/wunder-theme/dist/
+/web/themes/custom/wunderful/dist/
 /web/profiles/.gitignore
 /web/profiles/contrib/
 /web/libraries/
