@@ -1,0 +1,47 @@
+# DDEV configuration for Wunder theme
+# See the documentation for more options:
+# https://ddev.readthedocs.io/en/stable/users/configuration/config/
+name: internal-wunder-theme
+type: drupal
+docroot: web
+php_version: "8.2"
+webserver_type: nginx-fpm
+xdebug_enabled: true
+additional_hostnames: []
+additional_fqdns: []
+database:
+    type: mariadb
+    version: "10.11"
+nodejs_version: "18"
+use_dns_when_possible: true
+composer_version: "2"
+disable_settings_management: true
+web_environment:
+  - DB_NAME=db
+  - DB_USER=db
+  - DB_PASS=db
+  - DB_HOST=db
+  - DRUSH_OPTIONS_URI=https://internal-wunder-theme.ddev.site
+  - ENVIRONMENT_NAME=ddev
+  - EXEC_GRUMPHP_COMMAND=ddev php
+  - HASH_SALT=notsosecurehash
+  - SELENIUM_WEBDRIVER_HOST=selenium-chrome
+  - SELENIUM_WEBDRIVER_BROWSER=chrome
+  - SELENIUM_WEBDRIVER_URL=https://internal-wunder-theme.ddev.site
+corepack_enable: false
+webimage_extra_packages:
+  - pkg-config
+  - libpixman-1-dev
+  - libcairo2-dev
+  - libpango1.0-dev
+  - make
+  - xdg-utils
+web_extra_exposed_ports:
+  - name: storybook
+    container_port: 6006
+    http_port: 6007
+    https_port: 6006
+web_extra_daemons:
+  - name: node.js
+    command: "tail -F package.json > /dev/null"
+    directory: /var/www/html

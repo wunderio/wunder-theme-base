@@ -1,0 +1,35 @@
+{# components/01-atoms/links/link/link.stories.twig #}
+{% stories link with {
+  title: 'Atoms/Links/Link'
+} %}
+
+  {% story default with {
+    name: 'Link',
+    args: {
+      link__content: 'Click me!',
+      link__url: '#',
+    }
+  } %}
+    {{ include('drupal-theme:link', {
+      link__content,
+      link__url,
+    }) }}
+  {% endstory %}
+
+  {% story inverse with {
+    name: 'Link inverse',
+    args: {
+      link__content: 'Click me!',
+      link__url: '#',
+    }
+  } %}
+    <div class="sb-background-dark">
+      {{ include('drupal-theme:link', {
+        link__content,
+        link__url,
+        link__modifiers: ['inverse'],
+      }) }}
+    </div>
+  {% endstory %}
+
+{% endstories %}

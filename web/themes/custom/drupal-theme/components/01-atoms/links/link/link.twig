@@ -1,0 +1,4 @@
+{% set link__base_class = 'link' %}
+{% set link__modifiers = link__modifiers|default([]) %}
+
+<a {{ bem(link__base_class, link__modifiers) }} href="{{ link__url }}">{{ link__content }}</a>

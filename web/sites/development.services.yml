@@ -1,0 +1,18 @@
+# Local development services.
+parameters:
+  http.response.debug_cacheability_headers: true
+  twig.config:
+    debug: true
+    auto_reload: true
+  storybook.development: true
+  cors.config:
+    enabled: true
+    allowedHeaders: [ '*' ]
+    allowedMethods: [ '*' ]
+    allowedOrigins: [ '*' ]
+    exposedHeaders: false
+    maxAge: false
+    supportsCredentials: true
+services:
+  cache.backend.null:
+    class: Drupal\Core\Cache\NullBackendFactory
