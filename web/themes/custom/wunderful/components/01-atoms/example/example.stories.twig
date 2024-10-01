@@ -1,0 +1,12 @@
+{% stories example with { title: 'Components/Examples/Text' } %}
+
+  {% story default with {
+    name: 'Simple text',
+    args: { text: 'I am a simple storybook story example!' }
+  } %}
+    {# Write any Twig for the "default" story. The `args` above will be made #}
+    {# available as variables for the template 👇 #}
+    {{ text }}
+  {% endstory %}
+
+{% endstories %}

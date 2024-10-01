@@ -1,0 +1,44 @@
+// Layout
+
+// The max width of the elements of the page. Background colors expands to full viewport width but the layout
+// width needs to be limited.
+$layoutMaxWidth: 95rem; // 1520px
+
+// The maximum width of the content area on the pages that are not full width.
+$contentNarrow: 52rem; // 832px
+
+// The width of the sidebar on the layouts where the sidebar is next to the content area.
+$sidebar: 20rem; // 320px
+
+// Fonts
+$fontBody: 'Public Sans', sans-serif;
+$fontHeading: 'Exo 2', sans-serif;
+
+// Typography
+$bodyXXL: 2rem;
+$bodyXL: 1.5rem;
+$bodyL: 1.25rem;
+$bodyM: 1.125rem;
+$bodyS: 1rem;
+
+
+// Spacing
+// TODO: Adjust the spacing.
+$space: 1rem;
+$spaceNone: 0;
+$space4XS: calc($space/4); // 0.25rem
+$space3XS: calc($space/2); // 0.5rem
+$space2XS: calc(($space/4) * 3); // 0.75rem
+$spaceXS: $space; // 1rem
+$spaceS: calc($space * 1.5); // 1.5rem
+$spaceM: calc($space * 2); // 2rem
+$spaceL: calc($space * 3); // 3rem
+$spaceXL: calc($space * 4); // 4rem
+$space2XL: calc($space * 6); // 6rem
+$space3XL: calc($space * 8); // 8rem
+
+$spacingElementsM: $spaceM;
+$spacingElementsL: $spaceL;
+
+// Other
+$underline-offset: 2px;

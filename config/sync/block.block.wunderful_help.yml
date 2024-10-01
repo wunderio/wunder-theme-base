@@ -1,0 +1,22 @@
+uuid: 1a3c83e3-2eb7-48bd-99ca-f55d118c8ebd
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - wunderful
+_core:
+  default_config_hash: 8nOAry2oKqJOr0zbrlJ3sZHDFJLIO6j-0vT0K_TYca4
+id: wunderful_help
+theme: wunderful
+region: header
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

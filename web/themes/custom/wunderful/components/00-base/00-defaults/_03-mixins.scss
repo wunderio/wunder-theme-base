@@ -1,0 +1,319 @@
+@mixin bodyCopy {
+  font-family: $fontBody;
+  font-size: $bodyM;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@mixin layoutWidth {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $layoutMaxWidth;
+}
+
+@mixin link(
+  $color: link-text,
+  $hover-color: text,
+  $font-weight: 600,
+  $underline-offset: $underline-offset
+) {
+  color: clr($color);
+  font-weight: $font-weight;
+  text-underline-offset: $underline-offset;
+
+  &:hover {
+    color: clr($hover-color);
+  }
+
+  &:focus {
+    border-radius: 1px;
+    outline: 1px solid currentColor;
+    outline-offset: 3px;
+    text-decoration: none;
+  }
+}
+
+@mixin link-inverse($font-weight: 600) {
+  @include link(
+    $color: text-inverse,
+    $hover-color: text-gray,
+    $font-weight: $font-weight
+  )
+}
+
+@mixin button(
+  $background: clr(accent-main),
+  $border: 2px solid,
+  $borderColor: clr(accent-main),
+  $color: clr(text-inverse),
+  $hover-background: clr(background-dark),
+  $hover-border-color: clr(background-dark),
+  $hover-color: clr(text-inverse),
+  $focus-outline-color: clr(background-dark),
+  $padding-top: 0.75rem
+) {
+  background: $background;
+  border: $border;
+  border-color: $borderColor;
+  border-radius: 5px;
+  color: $color;
+  font-family: inherit;
+  font-weight: 600;
+  padding: $padding-top 1rem;
+
+  &:hover {
+    background: $hover-background;
+    border-color: $hover-border-color;
+    color: $hover-color;
+  }
+
+  &:focus {
+    background: $hover-background;
+    border-color: $hover-border-color;
+    color: $hover-color;
+    outline: 2px solid $focus-outline-color;
+    outline-offset: 2px;
+  }
+}
+
+@mixin button-secondary {
+  @include button(
+      $background: clr(background),
+      $border: 2px solid,
+      $borderColor: currentColor,
+      $color: clr(link-text),
+      $hover-background: clr(background),
+      $hover-border-color: clr(background-dark),
+      $hover-color: clr(text)
+    );
+}
+
+@mixin button-tertiary {
+  @include button(
+    $background: clr(background),
+    $border: 2px solid,
+    $borderColor: clr(background),
+    $color: clr(link-text),
+    $hover-background: clr(background-secondary),
+    $hover-border-color: clr(background-secondary),
+    $hover-color: clr(text),
+  );
+}
+
+@mixin list-reset($margin: 0, $padding: 0, $list-style: none) {
+  margin: $margin;
+  padding: $padding;
+  list-style: $list-style;
+}
+
+/*
+ * Generic header styles:
+ * All arguments are optional. If not defined, the defaults below will be used
+*/
+
+$colorHeading: currentcolor;
+
+@mixin heading-xl(
+  $font-family: $fontHeading,
+  $font-size: 3rem,
+  $line-height: 133.33%,
+  $color: $colorHeading,
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 600,
+  $margin: 0 0 0.5em,
+  $letter-spacing: normal
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  letter-spacing: $letter-spacing;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+@mixin heading-large(
+  $font-family: $fontHeading,
+  $font-size: 2.25rem,
+  $line-height: 140%,
+  $color: $colorHeading,
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 600,
+  $margin: 0 0 0.5em,
+  $letter-spacing: normal
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  letter-spacing: $letter-spacing;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+
+  svg {
+    width: $spaceS;
+    height: $spaceS;
+  }
+}
+
+@mixin heading-medium(
+  $font-family: $fontHeading,
+  $font-size: 2rem,
+  $line-height: 131.25%,
+  $color: $colorHeading,
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 600,
+  $letter-spacing: normal,
+  $margin: 3rem 0 1rem
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  letter-spacing: $letter-spacing;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+
+  svg {
+    width: $spaceS;
+    height: $spaceS;
+  }
+}
+
+@mixin heading-small(
+  $font-family: $fontHeading,
+  $font-size: 1.5rem,
+  $line-height: 150%,
+  $color: $colorHeading,
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 600,
+  $letter-spacing: normal,
+  $margin: 2rem 0 0.5em
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  letter-spacing: $letter-spacing;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+
+  svg {
+    width: $spaceXS;
+    height: $spaceXS;
+  }
+}
+
+@mixin heading-xs(
+  $font-family: $fontHeading,
+  $font-size: 1.25rem,
+  $line-height: 160%,
+  $color: $colorHeading,
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 600,
+  $letter-spacing: normal,
+  $margin: 2rem 0 0.5em
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  letter-spacing: $letter-spacing;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+
+  svg {
+    width: $spaceS;
+    height: $spaceS;
+  }
+}
+
+@mixin heading-xxs(
+  $font-family: $fontHeading,
+  $font-size: 1.125rem,
+  $line-height: 150%,
+  $color: $colorHeading,
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 600,
+  $letter-spacing: normal,
+  $margin: 1rem 0 0.5em
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  letter-spacing: $letter-spacing;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+
+  svg {
+    width: $spaceXS;
+    height: $spaceXS;
+  }
+}

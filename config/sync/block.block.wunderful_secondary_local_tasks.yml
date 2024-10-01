@@ -1,0 +1,22 @@
+uuid: 51ae5602-89b1-4c9d-9a63-1d150c445787
+langcode: en-gb
+status: true
+dependencies:
+  theme:
+    - wunderful
+_core:
+  default_config_hash: BCWhood0xXFQYqxFgL1spXdb9KeIuXH1YvTdjIEedDg
+id: wunderful_secondary_local_tasks
+theme: wunderful
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

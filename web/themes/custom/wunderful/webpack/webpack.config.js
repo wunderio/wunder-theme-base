@@ -2,15 +2,17 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // Default to development mode
-const mode = process.argv.includes('--mode=production') ? 'production' : 'development';
+const mode = process.argv.includes('--mode=production')
+  ? 'production'
+  : 'development';
 
 module.exports = {
   // Specify the mode to use: 'development' or 'production'
-  mode: mode,
+  mode,
 
   // Entry point of the application
   entry: {
-    style: './components/style.scss',  // Name the entry point 'style'
+    style: './components/style.scss', // Name the entry point 'style'
   },
 
   // Output configuration
@@ -26,9 +28,9 @@ module.exports = {
         test: /\.s[ac]ss$/i, // Match .scss and .sass files
         use: [
           MiniCssExtractPlugin.loader, // Extract CSS into files
-          'css-loader',  // Resolves CSS imports and url()s
+          'css-loader', // Resolves CSS imports and url()s
           {
-            loader: 'sass-loader',  // Compiles Sass to CSS
+            loader: 'sass-loader', // Compiles Sass to CSS
             options: {
               implementation: require('sass'),
               sassOptions: {

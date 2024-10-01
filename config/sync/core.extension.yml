@@ -39,6 +39,7 @@ module:
   path_alias: 0
   search: 0
   shortcut: 0
+  storybook: 0
   system: 0
   taxonomy: 0
   text: 0
@@ -51,4 +52,6 @@ theme:
   olivero: 0
   claro: 0
   gin: 0
+  stable9: 0
+  wunderful: 0
 profile: standard

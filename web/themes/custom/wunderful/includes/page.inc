@@ -18,6 +18,6 @@ function wunderful_theme_suggestions_page_alter(array &$suggestions, array $vari
 /**
  * Implements template_preprocess_page().
  */
-function wunderful-theme_preprocess_page(&$variables) {
+function wunderful_theme_preprocess_page(&$variables) {
   $variables['site_name'] = \Drupal::config('system.site')->get('name');
 }

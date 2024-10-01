@@ -18,7 +18,7 @@ See [drupal-project](https://github.com/wunderio/drupal-project) documentation f
 2. Run `ddev npm i`.
 3. Run `ddev npm run develop`. This starts the Storybook and Webpack servers. Storybook is available on `https://internal-wunder-theme.ddev.site:6006`.
 4. If you want to only watch SCSS changes without running Storybook and Webpack, run `ddev npm sass-dev`.
-5. The stories written in Twig needs to be generated to JSON files for Storybook. To do this and watch new changes in the stories, enter the ddev container with `ddev ssh` and run `watch --color drush storybook:generate-all-stories`. If you want only to compile the JSON files without watching, run `drush strorybook:generate-all-stories`. TODO: Include this into the theme build and run processes.
+5. The stories written in Twig needs to be generated to JSON files for Storybook. To do this and watch new changes in the stories, enter the ddev container with `ddev ssh` and run `watch --color drush storybook:generate-all-stories`. If you want only to compile the JSON files without watching, run `drush storybook:generate-all-stories`. TODO: Include this into the theme build and run processes.
 
 ### Running tests
 

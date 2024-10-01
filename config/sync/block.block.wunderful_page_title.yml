@@ -1,0 +1,20 @@
+uuid: 96469772-b2cf-4e12-9937-ce2993350178
+langcode: en-gb
+status: true
+dependencies:
+  theme:
+    - wunderful
+_core:
+  default_config_hash: HLQY2xgby8K3vN_98hiOSasOhm9pdCsH234-s0duJ8Q
+id: wunderful_page_title
+theme: wunderful
+region: header
+weight: -30
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }
