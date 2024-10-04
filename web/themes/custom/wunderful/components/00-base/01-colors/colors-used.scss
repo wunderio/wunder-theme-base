@@ -1,35 +1,32 @@
-@use 'colors-vars';
-
-// Color Usage variables - use these (via the `clr` function below)
-// rather than color variables directly.
+// Color Usage
 $defaultColors: (
-  text: colors-vars.$nearBlack,
-  text-inverse: colors-vars.$white,
-  text-gray: colors-vars.$gray,
-  link-text: colors-vars.$blue,
-  background: colors-vars.$white,
-  background-dark: colors-vars.$nearBlack,
-  background-light: colors-vars.$grayLightest,
-  background-secondary: colors-vars.$gray,
-  border: colors-vars.$gray,
-  accent-main: colors-vars.$blue,
-  warning: colors-vars.$yellowWarning,
-  error: colors-vars.$redError,
-  message: colors-vars.$greensuccess,
-  info: colors-vars.$blueInfo,
-  warningLight: colors-vars.$yellowLight,
-  errorLight: colors-vars.$redLight,
-  messageLight: colors-vars.$greenLight,
-  infoLight: colors-vars.$cyanLight,
+  text: $nearBlack,
+  text-inverse: $white,
+  text-gray: $gray,
+  link-text: $blue,
+  background: $white,
+  background-dark: $nearBlack,
+  background-light: $grayLightest,
+  background-secondary: $gray,
+  border: $gray,
+  accent-main: $blue,
+  warning: $yellowWarning,
+  error: $redError,
+  message: $greenSuccess,
+  info: $blueInfo,
+  warningLight: $yellowLight,
+  errorLight: $redLight,
+  messageLight: $greenLight,
+  infoLight: $cyanLight,
 );
 
 $darkColors: (
-  text: colors-vars.$nearBlack,
-  text-inverse: colors-vars.$white,
-  background: colors-vars.$white,
+  text: $nearBlack,
+  text-inverse: $white,
+  background: $white,
 );
 
-///////////
+// ///////////
 // Usage //
 ///////////
 // This color function makes it easy for you to call a color by it's functional
@@ -59,6 +56,10 @@ $darkColors: (
 // browser supports that feature. If there is an exact match (e.g. `text`) in
 // both maps, the one from `$darkColors` will be used on machines that have
 // opted to use the 'dark mode' on their OS.
+
+body {
+  background-color: yellow;
+}
 :root {
   // Create custom properties for default colors
   @each $name, $color in $defaultColors {

@@ -1,86 +1,27 @@
-/**
- * Breakpoint Configuration
- */
+// Breakpoints
+$breakpoint-xxs: 320px;
+$breakpoint-xs: 768px;
+$breakpoint-s: 1024px;
+$breakpoint-m: 1280px;
+$breakpoint-l: 1440px;
+$breakpoint-xl: 1728px;
+$breakpoint-xxl: 1920px;
 
-// Global Breakpoints
+$breakpoint-nav: $breakpoint-m;
 
-// TODO: Adjust the breakpoints as needed.
-$breakpointXXS: 320px;
-$breakpointXS: 768px;
-$breakpointS: 1024px;
-$breakpointM: 1280px;
-$breakpointL: 1440px;
-$breakpointXL: 1728px;
-$breakpointXXL: 1920px;
-
-$breakpointNavi: $breakpointM;
-
-@mixin above($breakpoint) {
+// Mixin for media queries
+@mixin media($breakpoint) {
   @media (min-width: $breakpoint) {
     @content;
   }
 }
 
-// Mixin - breakpointXXS Breakpoint
-// Allows easier @include breakpointXXS {} syntax
-@mixin breakpointXXS {
-  @include above($breakpointXXS) {
-    @content;
-  }
-}
-
-// Mixin - breakpointXS Breakpoint
-// Allows easier @include breakpointXS {} syntax
-@mixin breakpointXS {
-  @include above($breakpointXS) {
-    @content;
-  }
-}
-
-// Mixin - breakpointS Breakpoint
-// Allows easier @include breakpointS {} syntax
-@mixin breakpointS {
-  @include above($breakpointS) {
-    @content;
-  }
-}
-
-// Mixin - breakpointM Breakpoint
-// Allows easier @include breakpointM {} syntax
-@mixin breakpointM {
-  @include above($breakpointM) {
-    @content;
-  }
-}
-
-// Mixin - breakpointL Breakpoint
-// Allows easier @include breakpointL {} syntax
-@mixin breakpointL {
-  @include above($breakpointL) {
-    @content;
-  }
-}
-
-// Mixin - breakpointXL Breakpoint
-// Allows easier @include breakpointXL {} syntax
-@mixin breakpointXL {
-  @include above($breakpointXL) {
-    @content;
-  }
-}
-
-// Mixin - max-width Breakpoint
-// Allows easier @include maxWidth {} syntax
-@mixin maxWidth {
-  @include above($layoutMaxWidth) {
-    @content;
-  }
-}
-
-/// Mixin - Navigation breakpoint
-/// Allows easier @include breakpointNavi {} syntax
-@mixin breakpointNavi {
-  @include above($breakpointNavi) {
-    @content;
-  }
-}
+// Specific breakpoint mixins for easier usage
+@mixin xxs { @include media($breakpoint-xxs) { @content; } }
+@mixin xs  { @include media($breakpoint-xs) { @content; } }
+@mixin s   { @include media($breakpoint-s)  { @content; } }
+@mixin m   { @include media($breakpoint-m)  { @content; } }
+@mixin l   { @include media($breakpoint-l)  { @content; } }
+@mixin xl  { @include media($breakpoint-xl) { @content; } }
+@mixin xxl { @include media($breakpoint-xxl) { @content; } }
+@mixin nav { @include media($breakpoint-nav) { @content; } }
