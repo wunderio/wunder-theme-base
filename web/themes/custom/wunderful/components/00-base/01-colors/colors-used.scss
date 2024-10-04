@@ -57,9 +57,6 @@ $darkColors: (
 // both maps, the one from `$darkColors` will be used on machines that have
 // opted to use the 'dark mode' on their OS.
 
-body {
-  background-color: yellow;
-}
 :root {
   // Create custom properties for default colors
   @each $name, $color in $defaultColors {
