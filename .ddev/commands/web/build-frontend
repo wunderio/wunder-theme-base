@@ -1,7 +1,0 @@
-#!/bin/bash
-
-## Description: Build frontend
-## Usage: build-frontend
-## Example: "ddev build-frontend"
-
-cd /var/www/html/web/themes/custom/wunder-theme && npm i && npm run build && drush cr
