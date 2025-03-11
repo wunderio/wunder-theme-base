@@ -1,9 +1,0 @@
-uuid: 361685a1-49f5-4445-9638-ffdcf4f89c9d
-langcode: en-gb
-status: true
-dependencies: {  }
-id: en-gb
-label: 'English, British'
-direction: ltr
-weight: 0
-locked: false

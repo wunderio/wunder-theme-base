@@ -1,41 +1,73 @@
-# Wunder theme
+# Drupal 10 theme
 
-See [drupal-project](https://github.com/wunderio/drupal-project) documentation for the up-to-date information, including all available Lando services.
+A Drupal theme based on single directory components (SDC).
 
-## Local environment / DDEV
+### Getting started
 
-### Setting up
+1. Copy the theme files into `PROJECT_ROOT/web/themes/custom/`
+2. Add Drupal dependencies:
+```
+composer require drupal/sdc drupal/storybook drupal/twig_field_value drupal/twig_tweak
+drush en sdc storybook twig_field_value twig_tweak -y
+```
 
-1. Install DDEV and its dependencies (https://ddev.com/get-started/)
-2. Run `ddev start` to start the local environment
-3. Run `ddev composer install` to install packages
-4. Run `ddev import-db --file=mydb.sql.gz` to import the database or install the site from scratch: `ddev drush si --existing-config`
-5. Run `ddev build-frontend` to build the custom Wunder theme
+3. Make it the main theme:
+```
+drush then THEME_NAME -y && drush config-set system.theme default THEME_NAME -y
+```
 
-#### Running the theme
+4. Navigate to the theme directory and install node dependencies:
+```
+npm install
+```
 
-1. Go to the custom theme folder `cd web/themes/custom/wunder-theme`.
-2. Run `ddev npm i`.
-3. Run `ddev npm run develop`. This starts the Storybook and Webpack servers. Storybook is available on `https://internal-wunder-theme.ddev.site:6006`.
-4. If you want to only watch SCSS changes without running Storybook and Webpack, run `ddev npm sass-dev`.
-5. The stories written in Twig needs to be generated to JSON files for Storybook. To do this and watch new changes in the stories, enter the ddev container with `ddev ssh` and run `watch --color drush storybook:generate-all-stories`. If you want only to compile the JSON files without watching, run `drush storybook:generate-all-stories`. TODO: Include this into the theme build and run processes.
+5. Start watching for files and start up Storybook:
+```
+npm run develop
+```
 
-### Running tests
+6. The stories written in Twig needs to be generated to JSON files for Storybook. To do this and watch new changes in the stories, you might need to enter the ddev/lando container. Run
+```
+watch --color drush storybook:generate-all-stories
+```
+- If you want only to compile the JSON files without watching, run `drush strorybook:generate-all-stories`.
+- TODO: Include this into the theme build and run processes.
 
-To run acceptance tests, run `ddev codecept` and pass the arguments as you wish (for example `ddev codecept run Acceptance --debug`).
 
-The tests have a VNC that allows you to see the browser while the tests are running. To access it, see the message at the start of the output of `ddev codecept`.
+### Silta setup
 
-## Local environment / Lando
+1. Add a Silta configuration file `PROJECT_ROOT/silta/silta-storybook.yml`:
 
-### Setting up
+```yaml
 
-1. Install Lando and its dependencies (https://lando.dev/download/)
-2. Run `lando start` to start the local environment
-3. Run `lando composer install` to install packages
-4. Run `lando db-import mydb.sql.gz` to import the database or install the site from scratch: `lando drush si --existing-config`
-5. Run `lando build-frontend` to build the custom Wunder theme
+projectName: 'Wunder project'
 
-### Running tests
+nginx:
+  basicauth:
+    enabled: true
+    credentials:
+      username: wunder
+      password: set-password-here
+  noauthips:
+    wunder-vpn: 11.11.11.11/32 # Get and set IPs from Intra or other project repos
+```
 
-To run Codeception tests, use the lando command `lando codecept` and pass the arguments as you wish (for example `lando codecept run Acceptance --debug`).
+2. Then add a build step to CircleCI's config in `PROJECT_ROOT/.circleci/config.yml`:
+
+```yaml
+
+      # Storybook deployment to development cluster.
+      - silta/simple-build-deploy: &build-deploy
+          name: Storybook build & deploy
+          context: silta_dev
+          silta_config: silta/silta-storybook.yml
+          release-suffix: storybook
+          codebase-build:
+            - silta/npm-install-build:
+                build-command: npm run build && npm run build-storybook
+                path: web/themes/custom/drupal-theme
+          build_folder: web/themes/custom/drupal-theme/storybook-static
+          filters:
+            branches:
+              ignore: production
+```
