@@ -7,8 +7,8 @@ A Drupal theme based on single directory components (SDC).
 - Copy the theme files into `PROJECT_ROOT/web/themes/custom/`
 - Add Drupal dependencies:
 ```
-composer require drupal/sdc drupal/storybook drupal/twig_field_value drupal/twig_tweak
-drush en sdc storybook twig_field_value twig_tweak -y
+composer require drupal/storybook drupal/twig_field_value drupal/twig_tweak
+drush en storybook twig_field_value twig_tweak -y
 ```
 
 - Adjust Drupal setup to work with Storybook setup
