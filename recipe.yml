@@ -1,9 +1,0 @@
-name: 'Wunderful Theme'
-description: 'Theme using Storybook and Single directory components with required dependencies.'
-type: 'Theme'
-install:
-  - storybook:storybook
-  - wunderful:wunderful
-config:
-  import:
-    wunderful: '*' 
