@@ -1,0 +1,16 @@
+{
+    "name": "wunderio/wunderful",
+    "description": "Theme using Storybook and Single directory components.",
+    "type": "drupal-custom-theme",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "drupal/core": "^10 || ^11",
+        "drupal/storybook": "^1.0"
+    },
+    "extra": {
+        "drupal": {
+            "version": "1.0.0",
+            "datestamp": "1234567890"
+        }
+    }
+} 
