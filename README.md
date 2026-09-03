@@ -1,5 +1,7 @@
 # Drupal 10 theme
 
+> **Note:** Consider using [wudo](https://github.com/wunderio/wudo) for theme setup instead as it is more decoupled from tightly integrated and opionionated Storybook setup utlized in this theme.
+
 A Drupal theme based on single directory components (SDC).
 
 ### Getting started
